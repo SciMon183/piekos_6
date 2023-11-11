@@ -22,7 +22,9 @@
 1. [Pomysł]
 2. [Link_do_strony]
 
+## Opis dziaania oraz co jest zrobione:
 
+###### Na razie nic nie ma 
 
 
 <!-- linki do linków -->
