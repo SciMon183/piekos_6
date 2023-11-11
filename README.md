@@ -19,8 +19,11 @@
 
 ## Najważniejsza linki:
 
-[pomysl] Pomysłodawce
+1. [Pomysł]
 
 
 
-[pomysl]: https://samsung.com
+
+<!-- linki do linków -->
+
+[Pomysł]: https://samsung.com
