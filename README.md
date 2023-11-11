@@ -19,7 +19,7 @@
 
 ## Najważniejsza linki:
 
-[![pomysl] Pomysłodawce]
+[pomysl] Pomysłodawce
 
 
 
