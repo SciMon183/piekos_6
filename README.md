@@ -23,4 +23,4 @@
 
 
 
-[pomysl]: https://pornhub.com
+[pomysl]: https://samsung.com
