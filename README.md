@@ -20,6 +20,7 @@
 ## Najważniejsza linki:
 
 1. [Pomysł]
+2. [Link_do_strony]
 
 
 
@@ -27,3 +28,4 @@
 <!-- linki do linków -->
 
 [Pomysł]: <!-- link do strony autora -->
+[Link_do_strony]: https://telewizor.ckznr1.debica.pl/pogoda/
