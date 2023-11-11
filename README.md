@@ -26,4 +26,4 @@
 
 <!-- linki do linków -->
 
-[Pomysł]: https://samsung.com
+[Pomysł]: <!-- link do strony autora -->
