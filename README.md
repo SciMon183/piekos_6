@@ -37,7 +37,7 @@
 ## Opis dziaania oraz co jest zrobione:
 
 1. 24.11.2023 --> Pierwszys prototyp stacji pogodowej oraz napisany kod. <br>
-    Kod jest umieszczony w folderze softwre w folderze arduino. Aby wszystko działało poprawnie należy przekopiować kod i umieścić go u siebie w komputerze tak jak zasta przesany każdy plik musi być w odpowiednim folderze w innym wypadku będzie konieczna korekta kodu lub może nie działać tak jak powinno
+    Kod jest umieszczony w podfolderze softwre w folderze arduino. Aby wszystko działało poprawnie należy przekopiować kod i umieścić go u siebie w komputerze tak jak zasta przesany każdy plik musi być w odpowiednim folderze w innym wypadku będzie konieczna korekta kodu lub może nie działać tak jak powinno
 
 
 <!-- linki do linków -->
