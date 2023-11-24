@@ -9,7 +9,7 @@
 ## Używane technologie:
 
 1. Do pisania kodu: <br>
-    a) Visual Studio Code [VsCode],
+    a) [Visual Studio Code][VsCode],
     b) [Arduino_IDE]
 2. Języki programowania:
     -[MySQL],
