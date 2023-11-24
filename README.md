@@ -1,4 +1,4 @@
-# Praca na 6 u Piękosia 
+# Praca na 6 u Artura Piękosia 
 
 ## Co trzeba zrobić i ile jest zrobione
 1. Stacja pogodowa
@@ -10,7 +10,7 @@
 
 1. Do pisania kodu: VsCode i Arduino IDE
 2. Języki programowania: MySQL, HTML, CSS, JavaScript, PHP, Python, Arduino
-3. Reszta programów: ...
+3. Reszta programów: Eagle, LycheeSlicer, AutoCAD
 
 ## Autorzy:
 
@@ -25,7 +25,7 @@
 
 ## Opis dziaania oraz co jest zrobione:
 
-###### Na razie nic nie ma 
+1. 24.11.2023 --> Pierwszys prototyp stacji pogodowej oraz napisany kod. 
 
 
 <!-- linki do linków -->
