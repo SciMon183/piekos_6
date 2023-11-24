@@ -9,8 +9,8 @@
 ## Używane technologie:
 
 1. Do pisania kodu: <br>
-    a) [Visual Studio Code][VsCode],
-    b) [Arduino_IDE]
+    a) [Visual Studio Code][VsCode],  <br>
+    b) [Arduino IDE][arduino]
 2. Języki programowania:
     -[MySQL],
     -[HTML],
@@ -45,7 +45,7 @@
 [Link_do_strony]: https://telewizor.ckznr1.debica.pl/pogoda/
 
 [VsCode]: https://code.visualstudio.com/
-[Arduino_IDE]: https://www.arduino.cc/
+[arduino]: https://www.arduino.cc/
 [MySQL]: https://www.mysql.com/
 [HTML]: -
 [CSS]: - 
