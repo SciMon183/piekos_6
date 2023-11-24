@@ -11,16 +11,16 @@
 1. Do pisania kodu: <br>
     a) [Visual Studio Code][VsCode],  <br>
     b) [Arduino IDE][arduino]
-2. Języki programowania:
-    -[MySQL],
-    -[HTML],
-    -[CSS],
-    -[JavaScript],
-    -[PHP],
-    -[Python]
-3. Reszta programów: 
-    -[Eagle],
-    -[LycheeSlicer], 
+2. Języki programowania:  <br>
+    -[MySQL],  <br>
+    -[HTML],  <br>
+    -[CSS],  <br>
+    -[JavaScript],   <br>
+    -[PHP],   <br>
+    -[Python]   <br>
+3. Reszta programów: <br>
+    -[Eagle],  <br>
+    -[LycheeSlicer],    <br>
     -[AutoCAD]
 
 ## Autorzy:
