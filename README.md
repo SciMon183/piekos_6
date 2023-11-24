@@ -13,11 +13,10 @@
     b) [Arduino IDE][arduino]
 2. Języki programowania:  <br>
     a) [MySQL],  <br>
-    b) [HTML],  <br>
-    c) [CSS],  <br>
-    d) [JavaScript],   <br>
-    e) [PHP],   <br>
-    f) [Python]   <br>
+    b) [CSS],  <br>
+    c) [JavaScript],   <br>
+    d) [PHP],   <br>
+    e) [Python]   <br>
 3. Reszta programów: <br>
     a) [Eagle],  <br>
     b) [LycheeSlicer],    <br>
