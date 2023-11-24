@@ -12,16 +12,16 @@
     a) [Visual Studio Code][VsCode],  <br>
     b) [Arduino IDE][arduino]
 2. Języki programowania:  <br>
-    -[MySQL],  <br>
-    -[HTML],  <br>
-    -[CSS],  <br>
-    -[JavaScript],   <br>
-    -[PHP],   <br>
-    -[Python]   <br>
+    a) [MySQL],  <br>
+    b) [HTML],  <br>
+    c) [CSS],  <br>
+    d) [JavaScript],   <br>
+    e) [PHP],   <br>
+    f) [Python]   <br>
 3. Reszta programów: <br>
-    -[Eagle],  <br>
-    -[LycheeSlicer],    <br>
-    -[AutoCAD]
+    a) [Eagle],  <br>
+    b) [LycheeSlicer],    <br>
+    c) [AutoCAD]
 
 ## Autorzy:
 
