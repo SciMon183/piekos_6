@@ -34,6 +34,8 @@
 1. [Pomysł]
 2. [Link_do_strony]
 
+<!-- tutaj jest dziennik co byo zrobione i kiedy -->
+
 ## Opis dziaania oraz co jest zrobione:
 
 1. 24.11.2023 --> Pierwszys prototyp stacji pogodowej oraz napisany kod. <br>
