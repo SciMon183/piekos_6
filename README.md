@@ -30,5 +30,5 @@
 
 <!-- linki do linków -->
 
-[Pomysł]: <!-- link do strony autora -->
+[Pomysł]: https://majsterkowo.pl/solarna-stacja-meteo-z-wykorzystaniem-wemos-d1-mini-pro-oraz-raspberry-pi-3-b-czesc-1/
 [Link_do_strony]: https://telewizor.ckznr1.debica.pl/pogoda/
