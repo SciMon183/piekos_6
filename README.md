@@ -33,6 +33,10 @@
 1. [Pomysł]
 2. [Link_do_strony]
 
+## Instrukcja Obslugi
+
+
+
 <!-- tutaj jest dziennik co byo zrobione i kiedy -->
 
 ## Opis dziaania oraz co jest zrobione:
