@@ -1,4 +1,4 @@
-// Plik konfiguracyjny config.h.
+// Plik konfiguracyjny config.h
 
 // Plik musi znajdować się w tym samym folderze, co plik
 // D1MiniPro.ino.
@@ -9,10 +9,10 @@
 
 // Nazwa sieci Wi-Fi 2,4 GHz (SSID).
 // Uwaga! Wemos D1 Pro nie połączy się z siecią 5 GHz.
-const char WIFI_SSID[] = "________";
+const char WIFI_SSID[] = "internet2.4";
 
 // Hasło do sieci Wi-Fi
-const char WIFI_PASSWORD[] = "________";
+const char WIFI_PASSWORD[] = "internet123";
 
 // *******************************************************
 // ****************** USTAWIENIA STACJI ******************
@@ -41,13 +41,13 @@ const long SLEEP_INTERVAL = ; // np.: 360
 // *******************************************************
 
 // Adres IP serwera RPi z bazą MySQL
-const char IOT_SERVER[] = "________"; // np.: 192.168.0.10
+const char IOT_SERVER[] = "127.0.0.1"; // np.: 192.168.0.10
 
 // Port HTTP
 const char IOT_SERVER_PORT = 80;
 
 // Nazwa tabeli w bazie danych meteo
-const char table_name[] = "________"; // np.: S_01
+const char table_name[] = "S_01"; // np.: S_01
 
 // Klucz API
-const char write_api_key[] = "________"; // np.: CxRc86WQAd
+const char write_api_key[] = "CxRc86WQAd"; // np.: CxRc86WQAd

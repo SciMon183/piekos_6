@@ -114,7 +114,7 @@ void logonToRouter()
 {
   String exitMessage = "";
   int count = 0;
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(internet2.4,internet123);
   while ( WiFi.status() != WL_CONNECTED )
   {
     count++;
