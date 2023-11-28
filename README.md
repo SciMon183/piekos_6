@@ -39,6 +39,9 @@
 
 1. 24.11.2023 --> Pierwszys prototyp stacji pogodowej oraz napisany kod. <br>
     Kod jest umieszczony w podfolderze softwre w folderze arduino. Aby wszystko działało poprawnie należy przekopiować kod i umieścić go u siebie w komputerze tak jak zastał znajduje się w repo. Każdy plik musi być w odpowiednim folderze w innym wypadku będzie konieczna korekta kodu.
+    
+2. 28.11.2023 --> Jebać Arduino. <br>
+    Kod zwraca wszystko w porządku ale problem jest w polączeniu się z siecią. 
 
 <!-- linki do linków -->
 
