@@ -46,7 +46,7 @@
     
 2. 28.11.2023 --> Jebać Arduino. <br>
     Kod zwraca wszystko w porządku ale problem jest w polączeniu się z siecią. 
-Dupa    
+    
 
 <!-- linki do linków -->
 
