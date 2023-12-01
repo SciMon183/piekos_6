@@ -46,7 +46,9 @@
     
 2. 28.11.2023 --> Jebać Arduino. <br>
     Kod zwraca wszystko w porządku ale problem jest w polączeniu się z siecią. 
-    
+
+3. 1.12.2023 --> Postępy z arduino <br>
+    Poprawiony kod przez Kamila zaczyna dziać wemos poączy się z siecą, Krzysztof zaczą pracę nad bazą danych, a Szymon pracuje nad pobieraniem rekordów z bazy i wyświetlaniem ich na stronie. Dość duże postępy.     
 
 <!-- linki do linków -->
 
