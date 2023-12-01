@@ -61,28 +61,28 @@ void setup()
 
   // initialize BME280 pressure/temperature/humidity sensor
   while(!Serial) {} // Wait
-  Wire.begin();
-  while(!myBME280.begin())
-  {
-    Serial.println("Nie wykryto sensora BME/BMP280!");
-    delay(1000);
-  }
-  switch(myBME280.chipModel())
-  {
-     case BME280::ChipModel_BME280:
-       Serial.println("Wykryto sensor BME280. OK.");
-       break;
-     case BME280::ChipModel_BMP280:
-       Serial.println("Wykryto sensor BMP280. Odczyt wilgotności niemożliwy.");
-       break;
-     default:
-       Serial.println("Sensor NIEZNANY! Błąd!");
-       blinkLED(4);                    // notify the user
-  }
+ // Wire.begin();
+  // while(!myBME280.begin())
+  // {
+  //   Serial.println("Nie wykryto sensora BME/BMP280!");
+  //   delay(1000);
+  // }
+  // switch(myBME280.chipModel())
+  // {
+  //    case BME280::ChipModel_BME280:
+  //      Serial.println("Wykryto sensor BME280. OK.");
+  //      break;
+  //    case BME280::ChipModel_BMP280:
+  //      Serial.println("Wykryto sensor BMP280. Odczyt wilgotności niemożliwy.");
+  //      break;
+  //    default:
+  //      Serial.println("Sensor NIEZNANY! Błąd!");
+  //      blinkLED(4);                    // notify the user
+  // }
 
   // initialize BH1750 light sensor
   // the BH1750 library does not have a test for presence
-  myBH1750.begin();
+ // myBH1750.begin();
 
   logonToRouter();                  // logon to local Wi-Fi
 
@@ -114,7 +114,7 @@ void logonToRouter()
 {
   String exitMessage = "";
   int count = 0;
-  WiFi.begin(internet2.4,internet123);
+  WiFi.begin("LAPTOPHP","1qazxsW@");
   while ( WiFi.status() != WL_CONNECTED )
   {
     count++;

@@ -29,12 +29,12 @@ const float adcVoltage = 4.45;
 // Dane o wysokości n.p.m. można sprawdzić na stronie
 // https://www.freemaptools.com/elevation-finder.htm
 // wskazując na mapie lokalizację swojej stacji.
-const float STATION_ELEV = ; // np.: 127.5
+const float STATION_ELEV = 127.5; // np.: 127.5
 
 // Okres aktualizacji danych w sekundach.
 // Musi być dłuższy niż 15 sekund.
 // Sugerowane 360, 600 lub 900 sekund.
-const long SLEEP_INTERVAL = ; // np.: 360
+const long SLEEP_INTERVAL = 360; // np.: 360
 
 // *******************************************************
 // ****************** RPi MySQL Server *******************
