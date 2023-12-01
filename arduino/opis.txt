@@ -1,6 +1,2 @@
-Generalnie to jebać arduino i chuj.
-Jebane gówno zamiast dzialać to nie dziala.
-W sensie dziala w polowie.
-Chuj w dupe.
-:-)
-💻
+Zaczęo dzialać. 
+Wemos podlączy się do sieci i utrzymal polączenie.
