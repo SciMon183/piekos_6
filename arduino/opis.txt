@@ -1,2 +1,5 @@
-Zaczęo dzialać. 
-Wemos podlączy się do sieci i utrzymal polączenie.
+Katalog software zawiera cale oprogramowanie wgrane na wemosa.
+Wszystkie pliki związane z konfiguracją oraz polączeniem z siecią również znajdują się tam
+
+Katalog hardware zawiera wszystko co związane z hardwrem. 
+Schemat polączeń, plytkę drukowaną, schemat rysunkowy

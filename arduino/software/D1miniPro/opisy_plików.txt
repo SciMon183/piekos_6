@@ -1,0 +1,3 @@
+kod_orygina --> zawiera podstawowy kod bez zmian.
+kod_nasz --> zawiera kod z naszymi zmianami
+config.h --> zawiera konfigurację wszystkiego jak jest tworzona tabela do sql itp.
