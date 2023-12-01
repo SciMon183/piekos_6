@@ -3,7 +3,7 @@
 
 
    Ustaw monitor portu szeregowego na 115,200 baud
-   
+
    Program opracowano na podstawie projektu Karl Berger (Berger Engineering) http://w4krl.com/
 
    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
@@ -20,83 +20,86 @@
 
 */
 
-#include <Wire.h>               // [biblioteka wbudowana] I2C bus
-#include <BME280I2C.h>          // [doinstaluj bibliotekę] Tyler Glenn https://github.com/finitespace/BME280
-#include <BH1750.h>             // [doinstaluj bibliotekę] https://github.com/claws/BH1750
-#include <ESP8266WiFi.h>        // [biblioteka wbudowana] ESP8266 WiFi
+#include <Wire.h>        // [biblioteka wbudowana] I2C bus
+#include <BME280I2C.h>   // [doinstaluj bibliotekę] Tyler Glenn https://github.com/finitespace/BME280
+#include <BH1750.h>      // [doinstaluj bibliotekę] https://github.com/claws/BH1750
+#include <ESP8266WiFi.h> // [biblioteka wbudowana] ESP8266 WiFi
 
-#include "config.h"             // plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
+#include "config.h" // plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
 
 // *******************************************************
 // *********************** GLOBALS ***********************
 // *******************************************************
-String unitStatus = "";                         // for weather station status
+String unitStatus = ""; // for weather station status
 
 // structure to hold sensor measurements in metric units
 struct sensorData
 {
-  float stationPressure;          // measured station pressure in hPa
-  float seaLevelPressure;         // calculated SLP
-  float temperature;              // degrees Celsius
-  float humidity;                 // relative humidity %
-  unsigned int lightIntensity;    // lux
-  float cellVoltage;              // volts
-  long wifiRSSI;                  // dBm
-} rawData;  					  // declare struct variable
+  float stationPressure;       // measured station pressure in hPa
+  float seaLevelPressure;      // calculated SLP
+  float temperature;           // degrees Celsius
+  float humidity;              // relative humidity %
+  unsigned int lightIntensity; // lux
+  float cellVoltage;           // volts
+  long wifiRSSI;               // dBm
+} rawData;                     // declare struct variable
 
 // *******************************************************
 // ***************** INSTANTIATE OBJECTS *****************
 // *******************************************************
-BME280I2C myBME280;     // barometric pressure / temperature / humidity sensor
-BH1750 myBH1750;        // light intensity sensor
-WiFiClient client;      // WiFi connection
+BME280I2C myBME280; // barometric pressure / temperature / humidity sensor
+BH1750 myBH1750;    // light intensity sensor
+WiFiClient client;  // WiFi connection
 
 // *******************************************************
 // ************************ SETUP ************************
 // *******************************************************
+
 void setup()
 {
-  Serial.begin(115200);             // initialize the serial port
-  pinMode(LED_BUILTIN, OUTPUT);     // set builtin LED for output
+    Serial.begin(115200);         // initialize the serial port
+    pinMode(LED_BUILTIN, OUTPUT); // set builtin LED for output
 
   // initialize BME280 pressure/temperature/humidity sensor
-  while(!Serial) {} // Wait
- // Wire.begin();
-  // while(!myBME280.begin())
-  // {
-  //   Serial.println("Nie wykryto sensora BME/BMP280!");
-  //   delay(1000);
-  // }
-  // switch(myBME280.chipModel())
-  // {
-  //    case BME280::ChipModel_BME280:
-  //      Serial.println("Wykryto sensor BME280. OK.");
-  //      break;
-  //    case BME280::ChipModel_BMP280:
-  //      Serial.println("Wykryto sensor BMP280. Odczyt wilgotności niemożliwy.");
-  //      break;
-  //    default:
-  //      Serial.println("Sensor NIEZNANY! Błąd!");
-  //      blinkLED(4);                    // notify the user
-  // }
+  while (!Serial)
+  {
+  } // Wait
+  Wire.begin();
+  while (!myBME280.begin())
+  {
+    Serial.println("Nie wykryto sensora BME/BMP280!");
+    delay(1000);
+  }
+  switch (myBME280.chipModel())
+  {
+  case BME280::ChipModel_BME280:
+    Serial.println("Wykryto sensor BME280. OK.");
+    break;
+  case BME280::ChipModel_BMP280:
+    Serial.println("Wykryto sensor BMP280. Odczyt wilgotnosci niemozliwy.");
+    break;
+  default:
+    Serial.println("Sensor NIEZNANY! Błąd!");
+    blinkLED(4); // notify the user
+  }
 
   // initialize BH1750 light sensor
   // the BH1750 library does not have a test for presence
- // myBH1750.begin();
+  myBH1750.begin();
 
-  logonToRouter();                  // logon to local Wi-Fi
+  logonToRouter(); // logon to local Wi-Fi
 
   // load all sensor data into rawData struct
   rawData = readSensors();
 
   // send data to local serial port, ThingSpeak & APRS-IS
-  printToSerialPort(rawData);       // display data to local serial monitor
-  postToRPi(rawData);        // send data to RPi
+  printToSerialPort(rawData); // display data to local serial monitor
+  postToRPi(rawData);         // send data to RPi
 
   // all done, now go to sleep
-  blinkLED(3);                      // notify the user
+  blinkLED(3); // notify the user
   enterSleep(SLEEP_INTERVAL);
-} //setup()
+} // setup()
 
 // *******************************************************
 // ************************ LOOP *************************
@@ -114,48 +117,48 @@ void logonToRouter()
 {
   String exitMessage = "";
   int count = 0;
-  WiFi.begin("LAPTOPHP","1qazxsW@");
-  while ( WiFi.status() != WL_CONNECTED )
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED)
   {
     count++;
     // give up if more than 15 tries
-    if ( count > 15 )
+    if (count > 15)
     {
       // display error code on serial monitor
-      switch ( WiFi.status() )
+      switch (WiFi.status())
       {
-        case 1:
-          exitMessage = "Sieć Wi-Fi niedostępna lub\nStacja zbyt daleko od punktu dostępowego lub\nNiepoprawny SSID lub hasło lub\nAccess Poin nie pracuje na częstotliwości 2.4GHz.";
-          break;
-        case 2:  // will never show this condition
-          exitMessage = "Skanowanie sieci zakończone.";
-          break;
-        case 3:  // will never show this condition
-          exitMessage = "Połączono.";
-          break;
-        case 4:
-          exitMessage = "Błąd połączenia.";
-          break;
-        case 5:
-          exitMessage = "Utracono połączenie.";
-          break;
-        case 6:
-          exitMessage = "Rozłączono.";
-          break;
+      case 1:
+        exitMessage = "Siec Wi-Fi niedostępna lub\nStacja zbyt daleko od punktu dostępowego lub\nNiepoprawny SSID lub hasło lub\nAccess Poin nie pracuje na częstotliwości 2.4GHz.";
+        break;
+      case 2: // will never show this condition
+        exitMessage = "Skanowanie sieci zakonczone.";
+        break;
+      case 3: // will never show this condition
+        exitMessage = "Polaczono.";
+        break;
+      case 4:
+        exitMessage = "Blad polaczenia.";
+        break;
+      case 5:
+        exitMessage = "Utracono polaczenie.";
+        break;
+      case 6:
+        exitMessage = "Rozlaczono.";
+        break;
       } // switch
       Serial.print("WiFi fail: ");
       Serial.println(exitMessage);
-      blinkLED(5);                    // notify the user
-      enterSleep(60);                 // retry after 1 minute
-    } // if > 15
+      blinkLED(5);    // notify the user
+      enterSleep(60); // retry after 1 minute
+    }                 // if > 15
     // otherwise if < 15 blink LED and wait 500ms before checking connection
     blinkLED(1); // blink LED on each attempt to connect
     delay(500);  // one-half second delay between checks
     Serial.print("");
   } // while not connected
   // WiFi is sucesfully connected
-  Serial.println("");                 // new line to show IP address
-  Serial.print("Połączono z siecią Wi-Fi. Otrzymany adres IP: ");
+  Serial.println(""); // new line to show IP address
+  Serial.print("Polaczono z siecią Wi-Fi. Otrzymany adres IP: ");
   Serial.println(WiFi.localIP().toString()); // is toString necessary?
 } // logonToRouter()
 
@@ -164,24 +167,24 @@ void logonToRouter()
 // *******************************************************
 sensorData readSensors()
 {
-  sensorData tempData = {0};  // initialize temporary variable to hold readings
+  sensorData tempData = {0}; // initialize temporary variable to hold readings
 
   // a fudgeFactor corrects for voltage divider component variation
   // as measured by user in teh calbration step
   float fudgeFactor = dmmVoltage / adcVoltage;
   // BME280 pressure unit - every function expects pressure to be hPa
   // BME280 temperature unit - every function expects temperature in Celsius
-  
-  int samples = 3;      // number of samples to take for average
+
+  int samples = 3; // number of samples to take for average
 
   // declare and initialize temporary variables
-  float t = 0;          // temperature C
-  float h = 0;          // humidity %
-  float sp = 0;         // station pressure mb or hPa
-  float slp = 0;        // sea level pressure
-  unsigned int li = 0;  // light intensity lux
-  float cv = 0;         // cell voltage
-  long ssi = 0;         // signal strength
+  float t = 0;         // temperature C
+  float h = 0;         // humidity %
+  float sp = 0;        // station pressure mb or hPa
+  float slp = 0;       // sea level pressure
+  unsigned int li = 0; // light intensity lux
+  float cv = 0;        // cell voltage
+  long ssi = 0;        // signal strength
 
   // read sensors multiple times and take average
   for (int i = 0; i < samples; i++)
@@ -212,8 +215,8 @@ sensorData readSensors()
     tempData.cellVoltage += cv;
     tempData.wifiRSSI += ssi;
 
-    delay(50);   // provide some delay to let sensors settle
-  } // for()
+    delay(50); // provide some delay to let sensors settle
+  }            // for()
 
   // divide the accumulated values by the number of samples
   // to get an average
@@ -258,42 +261,42 @@ void printToSerialPort(sensorData dataRaw)
 void postToRPi(sensorData data)
 {
   // assemble and post the data
-  if ( client.connect(IOT_SERVER, IOT_SERVER_PORT) == true )
+  if (client.connect(IOT_SERVER, IOT_SERVER_PORT) == true)
   {
-    Serial.println("Połączono z serwerem RPi.");
+    Serial.println("Polaczono z serwerem RPi.");
 
     // get the data to RPi
-    client.print( "GET /espdata.php?");
+    client.print("GET /espdata.php?");
     client.print("api_key=");
-    client.print( write_api_key );
+    client.print(write_api_key);
     client.print("&&");
     client.print("station_id=");
-    client.print( table_name );
+    client.print(table_name);
     client.print("&&");
     client.print("t=");
-    client.print( data.temperature );
+    client.print(data.temperature);
     client.print("&&");
     client.print("h=");
-    client.print( data.humidity );
+    client.print(data.humidity);
     client.print("&&");
     client.print("ap=");
-    client.print( data.stationPressure );
+    client.print(data.stationPressure);
     client.print("&&");
     client.print("rp=");
-    client.print( data.seaLevelPressure );
+    client.print(data.seaLevelPressure);
     client.print("&&");
     client.print("li=");
-    client.print( data.lightIntensity );
+    client.print(data.lightIntensity);
     client.print("&&");
     client.print("ps=");
-    client.print( data.cellVoltage );
+    client.print(data.cellVoltage);
     client.print("&&");
     client.print("sl=");
-    client.print( data.wifiRSSI );
-    client.println( " HTTP/1.1");
-    client.println( "Host: localhost" );
-    client.println( "Content-Type: application/x-www-form-urlencoded" );
-    client.println( "Connection: close" );
+    client.print(data.wifiRSSI);
+    client.println(" HTTP/1.1");
+    client.println("Host: localhost");
+    client.println("Content-Type: application/x-www-form-urlencoded");
+    client.println("Connection: close");
     client.println();
     client.println();
     Serial.println("Wysłano dane na serwer RPi.");
@@ -320,10 +323,10 @@ float calculateSeaLevelPressure(float celsius, float stationPressure, float elev
 void enterSleep(long sleep)
 {
   // sleep is in seconds
-  Serial.print("Wejście w tryb głębokiego snu na: ");
+  Serial.print("Wejscie w tryb glebokiego snu na: ");
   Serial.print(sleep);
   Serial.println(" sekund.");
-  delay(200);                       // delay to let things settle
+  delay(200); // delay to let things settle
   // WAKE_RF_DEFAULT wakes the ESP8266 with WiFi enabled
   ESP.deepSleep(sleep * 1000000L, WAKE_RF_DEFAULT);
 } // enterSleep()
