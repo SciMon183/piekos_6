@@ -1,37 +1,18 @@
-/* D1MiniPro.ino
-   Wemos D1 Mini Pro - Stacja pogodowa zasilana panelem solarnym
+//Wemos D1 Mini Pro - Stacja pogodowa zasilana panelem solarnym
+//Ustaw monitor portu szeregowego na 115,200 baud
+// plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
 
-
-   Ustaw monitor portu szeregowego na 115,200 baud
-
-   Program opracowano na podstawie projektu Karl Berger (Berger Engineering) http://w4krl.com/
-
-   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
-   (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
-   merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software
-   is furnished to do so, subject to the following conditions:
-
-   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-   BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
 
 #include <Wire.h>        // [biblioteka wbudowana] I2C bus
 #include <BME280I2C.h>   // [doinstaluj bibliotekę] Tyler Glenn https://github.com/finitespace/BME280
 #include <BH1750.h>      // [doinstaluj bibliotekę] https://github.com/claws/BH1750
 #include <ESP8266WiFi.h> // [biblioteka wbudowana] ESP8266 WiFi
+#include "config.h"
 
-#include "config.h" // plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
 
-// *******************************************************
 // *********************** GLOBALS ***********************
-// *******************************************************
-String unitStatus = ""; // for weather station status
 
+String unitStatus = ""; // for weather station status
 // structure to hold sensor measurements in metric units
 struct sensorData
 {
@@ -44,16 +25,15 @@ struct sensorData
   long wifiRSSI;               // dBm
 } rawData;                     // declare struct variable
 
-// *******************************************************
+
 // ***************** INSTANTIATE OBJECTS *****************
-// *******************************************************
+
 BME280I2C myBME280; // barometric pressure / temperature / humidity sensor
 BH1750 myBH1750;    // light intensity sensor
 WiFiClient client;  // WiFi connection
 
-// *******************************************************
+
 // ************************ SETUP ************************
-// *******************************************************
 
 void setup()
 {
@@ -101,18 +81,18 @@ void setup()
   enterSleep(SLEEP_INTERVAL);
 } // setup()
 
-// *******************************************************
+
 // ************************ LOOP *************************
-// *******************************************************
+
 void loop()
 {
   // there is nothing to do here
   // everything is done in setup()
 } // loop()
 
-// *******************************************************
+
 // ***************** LOGON TO YOUR Wi-Fi *****************
-// *******************************************************
+
 void logonToRouter()
 {
   String exitMessage = "";
@@ -162,9 +142,9 @@ void logonToRouter()
   Serial.println(WiFi.localIP().toString()); // is toString necessary?
 } // logonToRouter()
 
-// *******************************************************
+
 // ******** READ SENSORS INTO A SENSORDATA STRUCT ********
-// *******************************************************
+
 sensorData readSensors()
 {
   sensorData tempData = {0}; // initialize temporary variable to hold readings
@@ -231,9 +211,9 @@ sensorData readSensors()
   return tempData;
 } // readSensors()
 
-// *******************************************************
+
 // ********** PRINT RAW DATA TO THE SERIAL PORT **********
-// *******************************************************
+
 void printToSerialPort(sensorData dataRaw)
 {
   // '\t' is the C++ escape sequence for tab
@@ -255,9 +235,9 @@ void printToSerialPort(sensorData dataRaw)
   Serial.println("----------------------------------------------------");
 } // printToSerialPort()
 
-// *******************************************************
+
 // ****************** SEND DATA TO RPi *******************
-// *******************************************************
+
 void postToRPi(sensorData data)
 {
   // assemble and post the data
@@ -317,9 +297,9 @@ float calculateSeaLevelPressure(float celsius, float stationPressure, float elev
   return slP;
 } // calculateSeaLevelPressure()
 
-// *******************************************************
+
 // ******************** enterSleep ***********************
-// *******************************************************
+
 void enterSleep(long sleep)
 {
   // sleep is in seconds
@@ -331,9 +311,9 @@ void enterSleep(long sleep)
   ESP.deepSleep(sleep * 1000000L, WAKE_RF_DEFAULT);
 } // enterSleep()
 
-// *******************************************************
+
 // ******************** Blink LED ************************
-// *******************************************************
+
 // this flashes the onboard LED to indicate various internal messages
 void blinkLED(int flashes)
 {
@@ -346,7 +326,3 @@ void blinkLED(int flashes)
     delay(250);                      // time between flashes
   }
 } // blinkLED()
-
-// *******************************************************
-// *********************** END ***************************
-// *******************************************************
