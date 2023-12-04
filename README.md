@@ -51,6 +51,8 @@
 3. 1.12.2023 --> Postępy z arduino <br>
     Poprawiony kod przez Kamila zaczyna dziać wemos poączy się z siecą, Krzysztof zaczą pracę nad bazą danych, a Szymon pracuje nad pobieraniem rekordów z bazy i wyświetlaniem ich na stronie. Dość duże postępy.     
 
+4. 4.12.2023 --> Wszystko idzie w dobrą stronę <br>
+    Krzysztof zabral się za postawienie serwera (używamy rassberry pi 0), idzie mu to powiedzmy że dobrze. Szymon zaczą pisać stronę dla klienta powoli wygląda to coraz lepiej ale códów na razie nie ma. Kamil na tomiast nic nie zrobil. 
 <!-- linki do linków -->
 
 [Pomysł]: https://majsterkowo.pl/solarna-stacja-meteo-z-wykorzystaniem-wemos-d1-mini-pro-oraz-raspberry-pi-3-b-czesc-1/
