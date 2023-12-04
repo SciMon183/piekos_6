@@ -13,7 +13,9 @@ body{
     background: #fff;
     color: #FF8091;
 }
-
+h1{
+    display: flex;
+}
 
 /* ------------------napis na góże---------------- */
 
@@ -21,4 +23,20 @@ body{
     margin: 2% 3%;
     font-size: 130%;
     width: max-content;
+}
+
+
+/* -----------------kwadracik z pierdolami-------------- */
+
+
+.kwadracik{
+    background-image: url(/klient/main/img/dupa.jpg);
+    background-size: contain;
+    background-position: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    width: 96%;
+    height: 50vh;
+    border-radius: 38px;
 }
