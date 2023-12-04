@@ -1,0 +1,2 @@
+Tutaj znajdują się wszystkie pliki związane z klientem. 
+Cala strona po stronie klienta. Wraz z jej opiezm 
