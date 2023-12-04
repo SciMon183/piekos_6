@@ -17,6 +17,38 @@ h1{
     display: flex;
 }
 
+/* --------------------kolumny-------------------- */
+
+.kolumny{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.kol1{
+    flex-basis: 60%;
+}
+.kol2{
+    margin-top: 2%;
+    flex-basis: 38%;
+    margin-right: 2%;
+}
+
+.kolumny-1{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.kol1-1{
+    flex-basis: 57%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+.kol2-1{
+    margin-top: 2%;
+    flex-basis: 38%;
+    margin-right: 2%;
+}
+
 /* ------------------napis na góże---------------- */
 
 .napis{
@@ -29,15 +61,16 @@ h1{
 /* -----------------kwadracik z pierdolami-------------- */
 
 #imageContainer {
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-top: 3%;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2.3%;
     border-radius: 36px;
-    width: 96%;
-    height: 55vh;
+    width: 92%;
+    height: 56vh;
     overflow: hidden;
     border: 1px solid #ccc;
     position: relative;
+    display: flex;
 }
 
 #imageContainer img {
@@ -46,4 +79,20 @@ h1{
     object-fit: cover;
     position: absolute;
     transition: opacity 1s ease-in-out;
+}
+
+
+/* ---------------------wykresy itp-------------------- */
+
+.wykres{
+    border-radius: 36px;
+    border-color: #FF9791;
+    border: solid 2px;
+    height: auto;
+}
+.wykres img{
+    border-radius: 36px;
+    margin: auto;
+    width: 100%;
+    height: 100%;
 }
