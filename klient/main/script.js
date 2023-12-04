@@ -1,3 +1,4 @@
+// ===========================zmiana zdjęć ==================================
 document.addEventListener('DOMContentLoaded', function() {
     const imageContainer = document.getElementById('imageContainer');
     const images = ['/klient/main/img/smok.jpg', '/klient/main/img/ladne.jpg'];  // Dodaj tutaj ścieżki do swoich obrazków
