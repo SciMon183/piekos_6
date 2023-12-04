@@ -1,0 +1,9 @@
+1. Kucharski kurwa masz zrobić taką tabelę jak masz w przykadzie
+2. Dane mają być pobierane z wemosa
+3. Potem masz przeprowadzać na nich operację:
+    - masz je porządkować tak jak w przykladzie 
+    - masz usuwać caly wiersz który jest starszy niż 4dni żeby nie zapychao pamięci i tabeli 
+    - z danych które są starsze możesz wyciągnąć 3(rano,poludnie,wieczor) i przechowywać je w innej bazue coś ala archiwum.
+4. Potem to wszystko jakoś polączymy. Ja zacznę ogarniać tą stronę. 
+5. Pwodzenia, wszystkie pliki mają się nazywć normalnie tak wiesz że da się wiedzieć co za co odpowiada i ma być to posegragowane 
+6. Jak będzie źle to przyżekam że zajebie!    
