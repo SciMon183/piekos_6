@@ -10,8 +10,8 @@
     box-sizing: border-box;
 }
 body{
-    background: #fff;
-    color: #FF8091;
+    background: #eaf8fc;
+    color: #FF9791;
 }
 h1{
     display: flex;
@@ -20,7 +20,7 @@ h1{
 /* ------------------napis na góże---------------- */
 
 .napis{
-    margin: 2% 3%;
+    margin: 1.9% 3%;
     font-size: 130%;
     width: max-content;
 }
@@ -28,15 +28,22 @@ h1{
 
 /* -----------------kwadracik z pierdolami-------------- */
 
-
-.kwadracik{
-    background-image: url(/klient/main/img/dupa.jpg);
-    background-size: contain;
-    background-position: auto;
+#imageContainer {
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 3%;
+    border-radius: 36px;
     width: 96%;
-    height: 50vh;
-    border-radius: 38px;
+    height: 55vh;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+#imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
 }

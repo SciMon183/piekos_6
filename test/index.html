@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Change with Smooth Transition</title>
+    <style>
+        #imageContainer {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        #imageContainer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer">
+        <img src="/klient/main/img/smok.jpg" alt="Image 1">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageContainer = document.getElementById('imageContainer');
+            const images = ['/klient/main/img/smok.jpg', '/klient/main/img/ladne.jpg', '/klient/main/img/ladne1.jpg'];  // Dodaj tutaj ścieżki do swoich obrazków
+            let currentIndex = 0;
+
+            function changeImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                const imageUrl = images[currentIndex];
+                const newImage = new Image();
+                newImage.src = imageUrl;
+
+                // Dodajmy event listener, aby zmiana obrazka była płynna
+                newImage.addEventListener('load', function() {
+                    const currentImage = imageContainer.querySelector('img');
+
+                    newImage.style.opacity = 0;  // Ustawienie przezroczystości nowego obrazka na 0
+                    imageContainer.appendChild(newImage);
+
+                    setTimeout(function() {
+                        currentImage.style.opacity = 0;  // Zanikanie aktualnego obrazka
+                        newImage.style.opacity = 1;  // Pojawianie się nowego obrazka
+                    }, 10);  // Krótka przerwa przed rozpoczęciem animacji, aby zapewnić płynność
+                });
+            }
+
+            setInterval(changeImage, 5000);  // Zmiana obrazka co 30 sekund
+        });
+    </script>
+</body>
+</html>

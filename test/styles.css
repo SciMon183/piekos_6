@@ -1,0 +1,28 @@
+/* styles.css */
+
+@keyframes changeBackground {
+    0% {
+        background-image: url("klient/main/img/smok.jpg");
+    }
+    33% {
+        background-image: url("klient/main/img/ladne.jpg");
+    }
+    66% {
+        background-image: url("klient/main/img/ladne1.jpg");
+    }
+    100% {
+        background-image: url("klient/main/img/smok.jpg");
+    }
+}
+
+.kwadracik {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    width: 60%;
+    height: 60vh;
+    border-radius: 38px;
+    background-size: contain;
+    background-position: center;
+    animation: changeBackground 30s infinite linear; /* 30 sekund, nieskończona ilość razy, liniowe przejście */
+}
