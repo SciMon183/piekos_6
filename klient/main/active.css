@@ -6,10 +6,19 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
 }
 body{
-    background: #EFFAF8;
-    color: #fff;
+    background: #fff;
+    color: #FF8091;
+}
+
+
+/* ------------------napis na góże---------------- */
+
+.napis{
+    margin: 2% 3%;
+    font-size: 130%;
+    width: max-content;
 }
