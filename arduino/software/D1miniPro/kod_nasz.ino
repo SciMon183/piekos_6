@@ -1,14 +1,12 @@
-//Wemos D1 Mini Pro - Stacja pogodowa zasilana panelem solarnym
-//Ustaw monitor portu szeregowego na 115,200 baud
-// plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
-
+// Wemos D1 Mini Pro - Stacja pogodowa zasilana panelem solarnym
+// Ustaw monitor portu szeregowego na 115,200 baud
+//  plik konfiguracyjny do edycji (musi być w tym samym folderze co niniejszy plik)
 
 #include <Wire.h>        // [biblioteka wbudowana] I2C bus
 #include <BME280I2C.h>   // [doinstaluj bibliotekę] Tyler Glenn https://github.com/finitespace/BME280
 #include <BH1750.h>      // [doinstaluj bibliotekę] https://github.com/claws/BH1750
 #include <ESP8266WiFi.h> // [biblioteka wbudowana] ESP8266 WiFi
 #include "config.h"
-
 
 // *********************** GLOBALS ***********************
 
@@ -25,20 +23,18 @@ struct sensorData
   long wifiRSSI;               // dBm
 } rawData;                     // declare struct variable
 
-
 // ***************** INSTANTIATE OBJECTS *****************
 
 BME280I2C myBME280; // barometric pressure / temperature / humidity sensor
 BH1750 myBH1750;    // light intensity sensor
 WiFiClient client;  // WiFi connection
 
-
 // ************************ SETUP ************************
 
 void setup()
 {
-    Serial.begin(115200);         // initialize the serial port
-    pinMode(LED_BUILTIN, OUTPUT); // set builtin LED for output
+  Serial.begin(115200);         // initialize the serial port
+  pinMode(LED_BUILTIN, OUTPUT); // set builtin LED for output
 
   // initialize BME280 pressure/temperature/humidity sensor
   while (!Serial)
@@ -56,7 +52,7 @@ void setup()
     Serial.println("Wykryto sensor BME280. OK.");
     break;
   case BME280::ChipModel_BMP280:
-    Serial.println("Wykryto sensor BMP280. Odczyt wilgotnosci niemozliwy.");
+    Serial.println("Wykryto sensor BMP280. Odczyt wilgotności niemożliwy.");
     break;
   default:
     Serial.println("Sensor NIEZNANY! Błąd!");
@@ -81,7 +77,6 @@ void setup()
   enterSleep(SLEEP_INTERVAL);
 } // setup()
 
-
 // ************************ LOOP *************************
 
 void loop()
@@ -90,7 +85,6 @@ void loop()
   // everything is done in setup()
 } // loop()
 
-
 // ***************** LOGON TO YOUR Wi-Fi *****************
 
 void logonToRouter()
@@ -98,6 +92,7 @@ void logonToRouter()
   String exitMessage = "";
   int count = 0;
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  delay(1000);
   while (WiFi.status() != WL_CONNECTED)
   {
     count++;
@@ -141,7 +136,6 @@ void logonToRouter()
   Serial.print("Polaczono z siecią Wi-Fi. Otrzymany adres IP: ");
   Serial.println(WiFi.localIP().toString()); // is toString necessary?
 } // logonToRouter()
-
 
 // ******** READ SENSORS INTO A SENSORDATA STRUCT ********
 
@@ -211,7 +205,6 @@ sensorData readSensors()
   return tempData;
 } // readSensors()
 
-
 // ********** PRINT RAW DATA TO THE SERIAL PORT **********
 
 void printToSerialPort(sensorData dataRaw)
@@ -234,7 +227,6 @@ void printToSerialPort(sensorData dataRaw)
   Serial.println(dataRaw.cellVoltage, 2);
   Serial.println("----------------------------------------------------");
 } // printToSerialPort()
-
 
 // ****************** SEND DATA TO RPi *******************
 
@@ -297,7 +289,6 @@ float calculateSeaLevelPressure(float celsius, float stationPressure, float elev
   return slP;
 } // calculateSeaLevelPressure()
 
-
 // ******************** enterSleep ***********************
 
 void enterSleep(long sleep)
@@ -310,7 +301,6 @@ void enterSleep(long sleep)
   // WAKE_RF_DEFAULT wakes the ESP8266 with WiFi enabled
   ESP.deepSleep(sleep * 1000000L, WAKE_RF_DEFAULT);
 } // enterSleep()
-
 
 // ******************** Blink LED ************************
 
