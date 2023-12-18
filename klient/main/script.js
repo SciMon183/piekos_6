@@ -24,5 +24,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    setInterval(changeImage, 8000);  // Zmiana obrazka co 30 sekund
+    setInterval(changeImage, 5000);  // Zmiana obrazka co 8 sekund
 });
