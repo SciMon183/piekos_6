@@ -6,7 +6,7 @@
 // ********************* DANE WI-FI **********************
 
 const char *WIFI_SSID = "ssid";
-const char *WIFI_PASSWORD = "hasl;o";
+const char *WIFI_PASSWORD = "haslo";
 
 
 // ****************** USTAWIENIA STACJI ******************
