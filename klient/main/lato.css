@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 body{
-    background: #eaf8fc;
+    background: #f8fdff;
     color: #FF9791;
 }
 h1{
@@ -39,9 +39,10 @@ h1{
     flex-wrap: wrap;
 }
 .kol1-1{
-    flex-basis: 57%;
+    flex-basis: 94%;
     margin-top: 2%;
     margin-left: 3%;
+    margin-right: 3%;
 }
 .kol2-1{
     margin-top: 2%;
