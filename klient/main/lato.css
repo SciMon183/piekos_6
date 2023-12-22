@@ -52,7 +52,7 @@ h1{
 /* ------------------napis na góże---------------- */
 
 .napis{
-    margin: 1.9% 3%;
+    margin: 1.9% auto;
     font-size: 130%;
     width: max-content;
 }
