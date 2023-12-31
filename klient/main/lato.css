@@ -111,7 +111,8 @@ h1{
 }
 
 .tempe h1, .cis h1, .wilg h1, .swiatlo h1{
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .ikona{
     height: 100%;
