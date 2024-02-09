@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const imageContainer = document.getElementById('imageContainer');
-    const images = ['klient/main/img/smok.jpg', 'klient/main/img/ladne.jpg', 'klient/main/img/ladne1.jpg'];
+    const images = ['/klient/main/img/smok.jpg', '/klient/main/img/ladne.jpg'];
     let currentIndex = 0;
     let imageCache = [];
 
