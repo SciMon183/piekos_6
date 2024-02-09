@@ -1,22 +1,20 @@
-document.addEventListener('DOMContentLoaded', function()
-{
+document.addEventListener('DOMContentLoaded', function() {
     const imageContainer = document.getElementById('imageContainer');
     const images = ['/klient/main/img/ladne.jpg', '/klient/main/img/smok.jpg'];
     let currentIndex = 0;
-    const imageElement = document.querySelector('#imageContainer img');
 
-    function changeImage() 
-    {
+    function changeImage() {
         currentIndex = (currentIndex + 1) % images.length;
-        imageElement.style.opacity = '0';
+        const newImage = new Image();
+        newImage.src = images[currentIndex];
+        newImage.alt = 'Zdjęcie';
+        newImage.classList.add('fade-in');
 
-        setTimeout(function() 
-        {
-            imageElement.src = images[currentIndex];
-            imageElement.style.opacity = '1';
-        }, 600); // Czas opóźnienia
+        newImage.onload = function() {
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(newImage);
+        };
     }
 
-    // Uruchomienie funkcji zmiany obrazka co 6 sekund
     setInterval(changeImage, 6000);
 });
