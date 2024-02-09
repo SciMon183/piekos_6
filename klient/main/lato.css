@@ -23,9 +23,12 @@ header {
     margin-top: 3%;
 }
 
-.image-column,
+.image-column{
+    flex-basis: 65%;
+    padding: 0 1%;
+}
 .data-column {
-    flex-basis: 50%;
+    flex-basis: 35%;
     padding: 0 1%;
 }
 
@@ -36,6 +39,7 @@ header {
     width: auto; /* Ustawienie szerokości kontenera obrazu */
     height: 70vh; /* Ustawienie wysokości kontenera obrazu */
     position: relative;
+    margin-right: 5%;
 }
 
 #imageContainer img {
@@ -45,10 +49,8 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.6s ease-in-out; /* Płynne przejście */
+    transition: opacity 0.6s ease-in-out;  
 }
-
-
 
 .weather-data {
     margin-top: 3%;
@@ -63,7 +65,7 @@ header {
 .data-item img {
     width: 9%;
     height: 4%;
-    margin-right: 6%;
+    margin-right: 8%;
 }
 
 .data-item p {

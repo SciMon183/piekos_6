@@ -23,9 +23,11 @@ header {
     margin-top: 50px;
 }
 
-.image-column,
+.image-column{
+    flex-basis: 67%;
+}
 .data-column {
-    flex-basis: 50%;
+    flex-basis: 35%;
     padding: 0 20px;
 }
 
