@@ -1,4 +1,4 @@
 {
     "board": "esp8266:esp8266:d1_mini_pro",
-    "port": "/dev/ttyUSB1"
+    "port": "/dev/tty.usbserial-56B90010421"
 }
