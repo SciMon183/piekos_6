@@ -23,6 +23,5 @@ document.addEventListener('DOMContentLoaded', function() {
 function odswiezStrone() {
     location.reload();
 }
-
 // Uruchomienie funkcji odświeżania co minutę (60 000 milisekund)
 setInterval(odswiezStrone, 60000);
