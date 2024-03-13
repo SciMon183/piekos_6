@@ -18,3 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(changeImage, 6000);
 });
+
+// Funkcja do odświeżania strony
+function odswiezStrone() {
+    location.reload();
+}
+
+// Uruchomienie funkcji odświeżania co minutę (60 000 milisekund)
+setInterval(odswiezStrone, 60000);
