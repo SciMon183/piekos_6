@@ -13,7 +13,11 @@
 
 body {
     background-image: url('/klient/main/img/budynek-3_72dpi.jpg'); /* Zdjęcie tla */
+<<<<<<< HEAD
     background-size: 115%;
+=======
+    background-size: 110%;
+>>>>>>> 0c2d746d9e0b0b97b9081928dbbb64c4e75f7d43
     color: #333;
     padding: 2%;
     position: relative; /* Dodajemy pozycję względną, aby gradient był względem rodzica (body) */
