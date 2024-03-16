@@ -13,7 +13,7 @@
 
 body {
     background-image: url('/klient/main/img/budynek-3_72dpi.jpg'); /* Zdjęcie tla */
-    background-size: 100%;
+    background-size: 115%;
     color: #333;
     padding: 2%;
     position: relative; /* Dodajemy pozycję względną, aby gradient był względem rodzica (body) */
@@ -105,7 +105,7 @@ header {
     color: #f44336;
 }
 .data-item {
-    background-color: rgba(255, 255, 255, 0.55); /* Przezroczysty biały na tlo parametrow */
+    background-color: rgba(255, 255, 255, 0.70); /* Przezroczysty biały na tlo parametrow */
     padding: 20px; /* wielkosc */
     border-radius: 10px; /* zaookrąglenie boxu */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* cien dodany do boxa z danymi */
