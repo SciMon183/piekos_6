@@ -24,7 +24,7 @@
  ?>
 
     <header>
-        <h1><i>Witaj w CKZ!</i></h1>
+        <h1><i>Witamy w ckz nr.1 w Dębicy!!</i></h1>
     </header>
     <section>
         <div class="container">
@@ -37,21 +37,28 @@
                 <div class="weather-data">
                     <div class="data-item">
                         <img src="ico/temp.png" alt="Ikona temperatury">
-                        <p>Temperatura: <span id="temperature"><?php echo $temperature ?></span>   C</p>
+                        <p>Temperatura: <span id="temperature"><?php echo $temperature ?></span>   ^C</p>
                     </div>
                     <div class="data-item">
                         <img src="ico/cisc.png" alt="Ikona ci ^{nienia">
-                        <p>Ci  ^{nienie: <span id="pressure"><?php echo $pressure?></span> hPa</p>
+                        <p>Ciśnienie: <span id="pressure"><?php echo $pressure?></span> hPa</p>
                     </div>
                     <div class="data-item">
                         <img src="ico/slon.png" alt="Ikona nas ^bonecznienia">
-                        <p>Nas ^bonecznienie: <span id="sunshine"><?php echo $light ?></span> lux</p>
+                        <p>Nasłonecznienie: <span id="sunshine"><?php echo $light ?></span> lux</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>    
     
-    <script src="script.js" async defer></script>
+    <script async defer>
+            // Funkcja do odświeżania strony
+        function odswiezStrone() {
+            location.reload();
+        }
+            // Uruchomienie funkcji odświeżania co minutę (60 000 milisekund)
+        setInterval(odswiezStrone, 60000);
+    </script>
 </body>
 </html>
