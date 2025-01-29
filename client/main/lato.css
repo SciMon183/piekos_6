@@ -14,7 +14,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px 0; /* Zmniejszamy wysokość nagłówka */
-    font-size: 3.5em; /* Zmniejszamy rozmiar czcionki */
+    font-size: 2em; /* Zmniejszamy rozmiar czcionki */
     font-weight: bold;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
     color: #ffcc00; /* Jasny, żywy kolor */
@@ -48,7 +48,7 @@ section {
     display: flex;
     align-items: center;
     gap: 25px; /* Zmniejszamy odstępy */
-    font-size: 2.5em; /* Zmniejszamy czcionkę */
+    font-size: 1.5em; /* Zmniejszamy czcionkę */
     font-weight: 700; /* Lekko mniejsza grubość czcionki */
     padding: 20px 30px;
     background: rgba(255, 255, 255, 0.3);
