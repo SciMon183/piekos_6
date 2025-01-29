@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pogoda</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="lato.css">
 </head>
 <body>
@@ -40,11 +40,11 @@
                         <p>Temperatura: <span id="temperature"><?php echo $temperature ?></span>   ^C</p>
                     </div>
                     <div class="data-item">
-                        <img src="ico/cisc.png" alt="Ikona ci ^{nienia">
+                        <img src="ico/cisc.png" alt="Ikona ciśnienia">
                         <p>Ciśnienie: <span id="pressure"><?php echo $pressure?></span> hPa</p>
                     </div>
                     <div class="data-item">
-                        <img src="ico/slon.png" alt="Ikona nas ^bonecznienia">
+                        <img src="ico/slon.png" alt="Ikona nas Nasłonecznienia">
                         <p>Nasłonecznienie: <span id="sunshine"><?php echo $light ?></span> lux</p>
                     </div>
                 </div>

@@ -1,0 +1,84 @@
+/* Ogólne ustawienia strony */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    background: url('../main/img/budynek-3_72dpi.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden; /* Uniemożliwia przewijanie strony */
+}
+
+/* Nagłówek */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 0; /* Zmniejszamy wysokość nagłówka */
+    font-size: 3.5em; /* Zmniejszamy rozmiar czcionki */
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    color: #ffcc00; /* Jasny, żywy kolor */
+    letter-spacing: 1px; /* Zmniejszamy przestrzeń między literami */
+}
+
+/* Sekcja danych pogodowych */
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Odejmuje wysokość nagłówka */
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 40px;
+    width: 60%; /* Ustalona szerokość kontenera */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.weather-data {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px; /* Zmniejszamy odstępy między danymi */
+    justify-items: center;
+}
+
+.data-item {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Zmniejszamy odstępy */
+    font-size: 2.5em; /* Zmniejszamy czcionkę */
+    font-weight: 700; /* Lekko mniejsza grubość czcionki */
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+    color: #00ffcc; /* Żywy kolor dla tekstu */
+}
+
+.data-item img {
+    width: 70px; /* Zmniejszamy ikony */
+    height: 70px;
+}
+
+/* Responsywność */
+@media (max-width: 1200px) {
+    .container {
+        width: 75%;
+    }
+
+    .data-item {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 2.8em; /* Zmniejszamy czcionkę nagłówka */
+    }
+
+    .data-item {
+        font-size: 2em; /* Zmniejszamy czcionkę danych */
+    }
+}
